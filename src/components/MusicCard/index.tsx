@@ -1,5 +1,6 @@
+import PlayButton from '$/components/PlayButton';
 import { Text } from '$/components/Text';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useContext, useState } from 'react';
 
 import {
   Container,
@@ -43,13 +44,12 @@ const MusicCard = forwardRef<HTMLDivElement, Props>(
             {song.description}
           </SongDescription>
           <SongAdditionalInfo>
+            <PlayButton/>
             <SongTimeline tag="p" variant="caption">
               {songTimeline}
             </SongTimeline>
           </SongAdditionalInfo>
         </SongInfoMain>
-        <h2>This is the song card</h2>
-        <span>Text</span>
       </Container>
     );
   },

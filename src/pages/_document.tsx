@@ -65,6 +65,10 @@ export default class AppDocument extends Document {
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <link
+          rel="stylesheet"
+          href="https://github.com/google/material-design-icons/tree/master/font"
+        />
       </Head>
       <body>
         <Main />
