@@ -1,6 +1,6 @@
 import PlayButton from '$/components/PlayButton';
 import { Text } from '$/components/Text';
-import { forwardRef, useContext, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import {
   Container,
