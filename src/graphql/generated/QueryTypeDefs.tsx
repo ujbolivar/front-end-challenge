@@ -454,7 +454,7 @@ export type Song = {
 export type SongResponse = {
   __typename?: 'SongResponse';
   /** Metadata to aid in pagination. */
-  pageMeta: PageMeta;
+  // pageMeta: PageMeta;
   /** The list of songs. */
   songs: Array<Song>;
 };
