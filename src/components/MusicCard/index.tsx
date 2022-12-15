@@ -1,5 +1,6 @@
 import PlayButton from '$/components/PlayButton';
 import { Text } from '$/components/Text';
+import AppProvider from '$/context/AppContext';
 import { forwardRef, useContext, useState } from 'react';
 
 import {
@@ -17,8 +18,8 @@ const MusicCard = forwardRef<HTMLDivElement, Props>(
   ({ className, songData }, ref) => {
     const [song] = useState(songData);
     const [songTimeline, setSongTimeline] = useState('0');
-    const [ongoingSong, setOngoingSong] = useState(song);
-    const [songPlaying, setSongPlaying] = useState(song);
+    const { ongoingSong, setOngoingSong } = useContext(AppProvider);
+    const { songPlaying, setSongPlaying } = useContext(AppProvider);
 
     const sound = document.createElement('audio');
     sound.src = song.audio.url;
