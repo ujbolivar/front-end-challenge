@@ -1,6 +1,6 @@
 import PlayButton from '$/components/PlayButton';
 import { Text } from '$/components/Text';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useContext, useState } from 'react';
 
 import {
   Container,
@@ -17,6 +17,8 @@ const MusicCard = forwardRef<HTMLDivElement, Props>(
   ({ className, songData }, ref) => {
     const [song] = useState(songData);
     const [songTimeline, setSongTimeline] = useState('0');
+    const [ongoingSong, setOngoingSong] = useState(song);
+    const [songPlaying, setSongPlaying] = useState(song);
 
     const sound = document.createElement('audio');
     sound.src = song.audio.url;
@@ -44,7 +46,12 @@ const MusicCard = forwardRef<HTMLDivElement, Props>(
             {song.description}
           </SongDescription>
           <SongAdditionalInfo>
-            <PlayButton/>
+            <PlayButton
+              playing={songPlaying && ongoingSong === song}
+              triggerPlay={(e) =>
+                changeSong(e, song, setSongPlaying, setOngoingSong)
+              }
+            />
             <SongTimeline tag="p" variant="caption">
               {songTimeline}
             </SongTimeline>
